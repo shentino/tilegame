@@ -15,14 +15,7 @@ void sdlgc::prepare()
 	width = srf->w;
 	height = srf->h;
 
-	SDL_Rect r;
-
-	r.w = width / 2;
-	r.h = height / 2;
-	r.x = r.w / 2;
-	r.y = r.h / 2;
-
-	SDL_FillRect(srf, &r, SDL_MapRGB(srf->format, 0x55, 0x55, 0x55));
+	SDL_FillRect(srf, NULL, SDL_MapRGB(srf->format, 0x55, 0x55, 0x55));
 }
 
 void sdlgc::commit()
