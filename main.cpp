@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 
 #include "framer.h"
+#include "sdlgc.h"
 
 using namespace std;
 
@@ -16,12 +17,12 @@ int main(int argc, char *argv[], char *envp[])
 	SDL_Window *win = SDL_CreateWindow("Tile game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_RESIZABLE);
 
 	framer fr;
-
 	fr.set_framerate(60);
 
 	SDL_Surface *srf = SDL_GetWindowSurface(win);
-
 	SDL_Event evt;
+
+	sdlgc gc(win);
 
 	for (;;) {
 		if (!SDL_WaitEvent(&evt)) {
@@ -32,7 +33,7 @@ int main(int argc, char *argv[], char *envp[])
 		case SDL_WINDOWEVENT:
 			switch (evt.window.event) {
 			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				srf = SDL_GetWindowSurface(win);
+				gc.resized();
 				break;
 			}
 			break;
@@ -41,8 +42,8 @@ int main(int argc, char *argv[], char *envp[])
 			goto out;
 		}
 
-		SDL_FillRect(srf, NULL, SDL_MapRGB(srf->format, 0xaa, 0x00, 0x55));
-		SDL_UpdateWindowSurface(win);
+		gc.prepare();
+		gc.commit();
 
 		fr.next();
 	}

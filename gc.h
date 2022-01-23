@@ -10,8 +10,8 @@ public:
 	gc();
 	virtual ~gc();
 
-	virtual void prepare();
-	virtual void commit();
+	virtual void prepare() = 0;
+	virtual void commit() = 0;
 };
 
 #endif
