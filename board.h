@@ -38,6 +38,8 @@ public:
 	}
 
 	void tick();
+	void scramble();
+
 	void draw(gc *gc);
 };
 
