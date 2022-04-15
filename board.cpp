@@ -50,6 +50,6 @@ void board::tick()
 	sz = width * height;
 
 	for (size_t i = 0; i < sz; i++) {
-		tiles[i] = lrand48() & 0xff;
+		tiles[i].terrain = lrand48() & 0xff;
 	}
 }
