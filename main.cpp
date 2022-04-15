@@ -5,11 +5,14 @@
 
 #include "framer.h"
 #include "sdlgc.h"
+#include "board.h"
 
 using namespace std;
 
 int main(int argc, char *argv[], char *envp[])
 {
+	board b(16, 16);
+
 	if (SDL_Init(SDL_INIT_VIDEO)) {
 		throw runtime_error(SDL_GetError());
 	}
