@@ -8,7 +8,6 @@ protected:
 	unsigned short width, height;
 
 public:
-	gc();
 	virtual ~gc();
 
 	unsigned short get_width()
