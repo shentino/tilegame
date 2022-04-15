@@ -43,6 +43,10 @@ void board::draw(gc *gc)
 	}
 }
 
+void board::tick()
+{
+}
+
 void board::scramble()
 {
 	size_t sz;
