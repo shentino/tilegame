@@ -58,21 +58,19 @@ int main(int argc, char *argv[], char *envp[])
 	for (;;) {
 		fr.next();
 
-		if (!SDL_PollEvent(&evt)) {
-			throw runtime_error(SDL_GetError());
-		}
-
-		switch(evt.type) {
-		case SDL_WINDOWEVENT:
-			switch (evt.window.event) {
-			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				gc->resized();
+		while (SDL_PollEvent(&evt)) {
+			switch(evt.type) {
+			case SDL_WINDOWEVENT:
+				switch (evt.window.event) {
+				case SDL_WINDOWEVENT_SIZE_CHANGED:
+					gc->resized();
+					break;
+				}
 				break;
-			}
-			break;
 
-		case SDL_QUIT:
-			goto out;
+			case SDL_QUIT:
+				goto out;
+			}
 		}
 
 		process();
