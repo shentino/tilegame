@@ -39,6 +39,8 @@ int main(int argc, char *argv[], char *envp[])
 	render();
 
 	for (;;) {
+		fr.next();
+
 		if (!SDL_WaitEvent(&evt)) {
 			throw runtime_error(SDL_GetError());
 		}
@@ -57,8 +59,6 @@ int main(int argc, char *argv[], char *envp[])
 		}
 
 		render();
-
-		fr.next();
 	}
 
 out:
