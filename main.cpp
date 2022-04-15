@@ -58,7 +58,7 @@ int main(int argc, char *argv[], char *envp[])
 	for (;;) {
 		fr.next();
 
-		if (!SDL_WaitEvent(&evt)) {
+		if (!SDL_PollEvent(&evt)) {
 			throw runtime_error(SDL_GetError());
 		}
 
