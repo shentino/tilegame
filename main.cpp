@@ -11,11 +11,23 @@ using namespace std;
 
 static board *b;
 static sdlgc *gc;
+static time_t last;
 
 static void render()
 {
 	gc->prepare();
 	gc->commit();
+}
+
+static void process()
+{
+	time_t now;
+
+	time(&now);
+
+	if (now != last) {
+		last = now;
+	}
 }
 
 int main(int argc, char *argv[], char *envp[])
@@ -58,6 +70,7 @@ int main(int argc, char *argv[], char *envp[])
 			goto out;
 		}
 
+		process();
 		render();
 	}
 
