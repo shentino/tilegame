@@ -49,7 +49,7 @@ void board::tick()
 
 	sz = width * height;
 
-	for (i = 0; i < sz; i++) {
+	for (size_t i = 0; i < sz; i++) {
 		tiles[i] = lrand48() & 0xff;
 	}
 }
