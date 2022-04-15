@@ -31,8 +31,10 @@ static void process()
 	if (now != last) {
 		last = now;
 
-		b->tick();
+		b->scramble();
 	}
+
+	b->tick();
 }
 
 int main(int argc, char *argv[], char *envp[])
