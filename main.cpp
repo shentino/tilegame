@@ -9,6 +9,12 @@
 
 using namespace std;
 
+static void render()
+{
+	gc.prepare();
+	gc.commit();
+}
+
 int main(int argc, char *argv[], char *envp[])
 {
 	board b(16, 16);
@@ -45,8 +51,7 @@ int main(int argc, char *argv[], char *envp[])
 			goto out;
 		}
 
-		gc.prepare();
-		gc.commit();
+		render();
 
 		fr.next();
 	}
