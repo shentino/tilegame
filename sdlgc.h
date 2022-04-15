@@ -17,7 +17,7 @@ public:
 	virtual ~sdlgc();
 
 	virtual void set_color(unsigned char r, unsigned char g, unsigned char b);
-	virtual void box(unsigned short x, unsigned short y, unsigned short w, unsigned short h);
+	virtual void box(int x, int y, int w, int h);
 
 	virtual void prepare();
 	virtual void commit();
