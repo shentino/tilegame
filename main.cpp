@@ -69,6 +69,18 @@ static void process()
 	b->tick();
 }
 
+static void spawn_agent()
+{
+	agent *a = new agent;
+
+	a->x = lrand48() % b->get_width();
+	a->y = lrand48() % b->get_height();
+	a->ox = 0.0;
+	a->oy = 0.0;
+
+	agents.push_back(a);
+}
+
 int main(int argc, char *argv[], char *envp[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO)) {
@@ -85,6 +97,10 @@ int main(int argc, char *argv[], char *envp[])
 
 	gc = new sdlgc(win);
 	b = new board(16, 16);
+
+	for (int i = 0; i < 16; i++) {
+		spawn_agent();
+	}
 
 	/* initial display */
 	render();
