@@ -30,6 +30,8 @@ static void process()
 
 	if (now != last) {
 		last = now;
+
+		b->tick();
 	}
 }
 

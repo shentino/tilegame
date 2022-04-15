@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <cstdlib>
 
 #include "board.h"
 
@@ -39,5 +40,16 @@ void board::draw(gc *gc)
 			gc->set_color(0, terrain, 0);
 			gc->box(offsetx + x * 16, offsety + y * 16, 16, 16);
 		}
+	}
+}
+
+void board::tick()
+{
+	size_t sz;
+
+	sz = width * height;
+
+	for (i = 0; i < sz; i++) {
+		tiles[i] = lrand48() & 0xff;
 	}
 }
