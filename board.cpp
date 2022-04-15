@@ -1,15 +1,17 @@
+#include <cstddef>
+
 #include "board.h"
 
-board::board(int new_width, int new_height)
+board::board(unsigned short new_width, unsigned short new_height)
 :width(new_width), height(new_height)
 {
-	int sz;
+	size_t sz;
 
 	sz = width * height;
 
 	tiles.resize(sz);
 
-	for (int i = 0; i < sz; i++) {
+	for (size_t i = 0; i < sz; i++) {
 		tiles[i].terrain = 0;
 	}
 }
@@ -20,8 +22,13 @@ void board::draw(gc *gc)
 
 	/* eventually we'll need to consult the ui for zoom and scroll information */
 
-	int centerx, centery;
+	unsigned short centerx, centery;
 
 	centerx = gc->get_width() / 2;
 	centery = gc->get_height() / 2;
+
+	unsigned short offsetx, offsety;
+
+	offsetx = centerx - ( ) / 2;
+	offsety = centery - ( ) / 2;
 }
