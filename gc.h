@@ -11,6 +11,16 @@ public:
 	gc();
 	virtual ~gc();
 
+	unsigned short get_width()
+	{
+		return width;
+	}
+
+	unsigned short get_height()
+	{
+		return height;
+	}
+
 	virtual void prepare() = 0;
 	virtual void commit() = 0;
 };
