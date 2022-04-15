@@ -16,6 +16,9 @@ static time_t last;
 static void render()
 {
 	gc->prepare();
+
+	b->draw(gc);
+
 	gc->commit();
 }
 
