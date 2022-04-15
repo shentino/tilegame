@@ -21,6 +21,16 @@ public:
 	board(int new_width, int new_height);
 	~board();
 
+	int get_width()
+	{
+		return width;
+	}
+
+	int get_height()
+	{
+		return height;
+	}
+
 	void tick();
 	void draw(gc *gc);
 };
