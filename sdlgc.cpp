@@ -12,7 +12,7 @@ sdlgc::~sdlgc()
 
 void sdlgc::set_color(unsigned char r, unsigned char g, unsigned char b)
 {
-	color = SDL_MapRGB(srf->fmt, r, g, b);
+	color = SDL_MapRGB(srf->format, r, g, b);
 }
 
 void sdlgc::box(unsigned short x, unsigned short y, unsigned short w, unsigned short h)
