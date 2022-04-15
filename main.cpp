@@ -35,6 +35,9 @@ int main(int argc, char *argv[], char *envp[])
 	gc = new sdlgc(win);
 	b = new board(16, 16);
 
+	/* initial display */
+	render();
+
 	for (;;) {
 		if (!SDL_WaitEvent(&evt)) {
 			throw runtime_error(SDL_GetError());
