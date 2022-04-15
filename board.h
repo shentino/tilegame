@@ -11,22 +11,22 @@ using namespace std;
 class board
 {
 	vector<tile> tiles;
-	int width, height;
+	unsigned short width, height;
 
 	board();
 	board(const board &);
 	board &operator=(const board &);
 
 public:
-	board(int new_width, int new_height);
+	board(unsigned short new_width, unsigned short new_height);
 	~board();
 
-	int get_width()
+	unsigned short get_width()
 	{
 		return width;
 	}
 
-	int get_height()
+	unsigned short get_height()
 	{
 		return height;
 	}
