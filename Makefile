@@ -1,6 +1,6 @@
 game: framer.o gc.o main.o sdlgc.o
 	g++ framer.o gc.o main.o sdlgc.o -o game `sdl2-config --libs`
-main.o: main.cpp framer.h sdlgc.h
+main.o: main.cpp board.h framer.h sdlgc.h tile.h
 	g++ -c main.cpp -o main.o `sdl2-config --cflags`
 framer.o: framer.cpp framer.h
 	g++ -c framer.cpp -o framer.o
