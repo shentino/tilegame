@@ -10,6 +10,8 @@ class sdlgc: public gc
 	SDL_Window *win;
 	SDL_Surface *srf;
 
+	Uint32 color;
+
 public:
 	sdlgc(SDL_Window *new_win);
 	virtual ~sdlgc();

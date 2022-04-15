@@ -12,10 +12,19 @@ sdlgc::~sdlgc()
 
 void sdlgc::set_color(unsigned char r, unsigned char g, unsigned char b)
 {
+	color = SDL_MapRGB(srf->fmt, r, g, b);
 }
 
 void sdlgc::box(unsigned short x, unsigned short y, unsigned short w, unsigned short h)
 {
+	SDL_Rect r;
+
+	r.x = x;
+	r.y = y;
+	r.w = w;
+	r.h = h;
+
+	SDL_FillRect(srf, &r, color);
 }
 
 void sdlgc::prepare()
