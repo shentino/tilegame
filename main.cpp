@@ -1,23 +1,36 @@
 #include <iostream>
 #include <stdexcept>
+#include <list>
 
 #include <SDL2/SDL.h>
 
+#include "agent.h"
+#include "board.h"
 #include "framer.h"
 #include "sdlgc.h"
-#include "board.h"
 
 using namespace std;
 
 static board *b;
 static sdlgc *gc;
 static time_t last;
+static list<agent *> agents;
 
 static void render()
 {
 	gc->prepare();
 
 	b->draw(gc);
+
+	list<agent *>::iterator ab, ae;
+
+	ab = agents.begin();
+	ae = agents.end();
+
+	while (ab != ae) {
+		(*ab)->draw(gc, b);
+		ab++;
+	}
 
 	gc->commit();
 }
