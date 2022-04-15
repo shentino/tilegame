@@ -45,6 +45,25 @@ static void process()
 		last = now;
 
 		b->scramble();
+
+		list<agent *>::iterator ab, ae;
+
+		ab = agents.begin();
+		ae = agents.end();
+
+		unsigned short w, h;
+
+		w = b->get_width();
+		h = b->get_height();
+
+		while (ab != ae) {
+			agent *a = *ab;
+
+			a->x = lrand48() % w;
+			a->y = lrand48() % h;
+
+			ab++;
+		}
 	}
 
 	b->tick();
