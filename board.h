@@ -3,10 +3,14 @@
 
 #include <vector>
 
-#include "tile.h"
 #include "gc.h"
 
 using namespace std;
+
+struct tile
+{
+	unsigned char terrain;
+};
 
 class board
 {
