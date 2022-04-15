@@ -9,12 +9,13 @@
 
 using namespace std;
 
-static board b(16, 16);
+static board *b;
+static sdlgc *gc;
 
 static void render()
 {
-	gc.prepare();
-	gc.commit();
+	gc->prepare();
+	gc->commit();
 }
 
 int main(int argc, char *argv[], char *envp[])
@@ -31,7 +32,8 @@ int main(int argc, char *argv[], char *envp[])
 	SDL_Surface *srf = SDL_GetWindowSurface(win);
 	SDL_Event evt;
 
-	sdlgc gc(win);
+	gc = new sdlgc(win);
+	b = new board(16, 16);
 
 	for (;;) {
 		if (!SDL_WaitEvent(&evt)) {
@@ -42,7 +44,7 @@ int main(int argc, char *argv[], char *envp[])
 		case SDL_WINDOWEVENT:
 			switch (evt.window.event) {
 			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				gc.resized();
+				gc->resized();
 				break;
 			}
 			break;
