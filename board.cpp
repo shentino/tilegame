@@ -32,8 +32,8 @@ void board::draw(gc *gc)
 	offsetx = centerx - (width * 16) / 2;
 	offsety = centery - (height * 16) / 2;
 
-	for (unsigned short y = 0; y < bheight; y++) {
-		for (unsigned short x = 0; x < bwidth; x++) {
+	for (unsigned short y = 0; y < height; y++) {
+		for (unsigned short x = 0; x < width; x++) {
 		}
 	}
 }
