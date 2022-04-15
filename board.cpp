@@ -30,15 +30,15 @@ void board::draw(gc *gc)
 
 	int offsetx, offsety;
 
-	offsetx = centerx - (width * 16) / 2;
-	offsety = centery - (height * 16) / 2;
+	offsetx = centerx - (width * TILESIZE) / 2;
+	offsety = centery - (height * TILESIZE) / 2;
 
 	for (unsigned short y = 0; y < height; y++) {
 		for (unsigned short x = 0; x < width; x++) {
 			unsigned char terrain = tiles[y * height + x].terrain;
 
 			gc->set_color(0, terrain, 0);
-			gc->box(offsetx + x * 16, offsety + y * 16, 16, 16);
+			gc->box(offsetx + x * TILESIZE, offsety + y * TILESIZE, TILESIZE, TILESIZE);
 		}
 	}
 }

@@ -5,6 +5,8 @@
 
 #include "gc.h"
 
+#define TILESIZE 32
+
 using namespace std;
 
 struct tile
