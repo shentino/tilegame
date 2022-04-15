@@ -23,12 +23,12 @@ void board::draw(gc *gc)
 
 	/* eventually we'll need to consult the ui for zoom and scroll information */
 
-	unsigned short centerx, centery;
+	int centerx, centery;
 
 	centerx = gc->get_width() / 2;
 	centery = gc->get_height() / 2;
 
-	unsigned short offsetx, offsety;
+	int offsetx, offsety;
 
 	offsetx = centerx - (width * 16) / 2;
 	offsety = centery - (height * 16) / 2;
