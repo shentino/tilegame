@@ -106,6 +106,8 @@ int main(int argc, char *argv[], char *envp[])
 	render();
 
 	for (;;) {
+		bool resized = false;
+
 		fr.next();
 
 		while (SDL_PollEvent(&evt)) {
@@ -113,7 +115,7 @@ int main(int argc, char *argv[], char *envp[])
 			case SDL_WINDOWEVENT:
 				switch (evt.window.event) {
 				case SDL_WINDOWEVENT_SIZE_CHANGED:
-					gc->resized();
+					resized = true;
 					break;
 				}
 				break;
@@ -121,6 +123,11 @@ int main(int argc, char *argv[], char *envp[])
 			case SDL_QUIT:
 				goto out;
 			}
+		}
+
+		if (resized) {
+			resized = false;
+			gc->resized();
 		}
 
 		process();
