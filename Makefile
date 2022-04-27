@@ -1,5 +1,15 @@
+# phony targets
+all: game
+clean:
+	rm -f game *.o
+
+.PHONY: all cean
+
+# main output
 game: agent.o board.o framer.o gc.o main.o sdlgc.o
 	g++ agent.o board.o framer.o gc.o main.o sdlgc.o -o game `sdl2-config --libs`
+
+# object files
 agent.o: agent.cpp agent.h board.h gc.h
 	g++ -ggdb3 -c agent.cpp -o agent.o
 board.o: board.cpp board.h gc.h sdlgc.h
