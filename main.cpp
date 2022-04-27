@@ -14,6 +14,7 @@ using namespace std;
 static board *b;
 static sdlgc *gc;
 static time_t last;
+static bool resized;
 static list<agent *> agents;
 
 static void render()
@@ -81,7 +82,7 @@ static void spawn_agent()
 	agents.push_back(a);
 }
 
-static bool poll(bool &resized)
+static bool poll()
 {
 	SDL_Event evt;
 
@@ -129,14 +130,14 @@ int main(int argc, char *argv[], char *envp[])
 	/* catch any preemptive events */
 	resized = false;
 
-	if (poll(resized)) {
+	if (poll()) {
 		goto out;
 	}
 
 	for (;;) {
-		bool resized = false;
+		resized = false;
 
-		if (poll(resized)) {
+		if (poll()) {
 			goto out;
 		}
 
