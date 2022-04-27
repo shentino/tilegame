@@ -18,6 +18,7 @@ public:
 	}
 
 	void draw(gc *gc, board *b);
+	void tick(board *b);
 };
 
 #endif
