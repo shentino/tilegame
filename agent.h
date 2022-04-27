@@ -13,6 +13,10 @@ public:
 	unsigned short x, y;
 	float ox, oy;
 
+	agent()
+	{
+	}
+
 	void draw(gc *gc, board *b);
 };
 
