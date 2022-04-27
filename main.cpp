@@ -127,7 +127,11 @@ int main(int argc, char *argv[], char *envp[])
 	render();
 
 	/* catch any preemptive events */
-	poll();
+	resized = false;
+
+	if (poll(resized)) {
+		goto out;
+	}
 
 	for (;;) {
 		bool resized = false;
