@@ -14,3 +14,7 @@ void agent::draw(gc *gc, board *b)
 	gc->set_color(0xff, 0xff, 0xff);
 	gc->box(offsetx + x * TILESIZE + TILESIZE / 4, offsety + y * TILESIZE + TILESIZE / 4, TILESIZE / 2, TILESIZE / 2);
 }
+
+void agent::tick(board *b)
+{
+}
