@@ -4,8 +4,9 @@
 class gc;
 class board;
 
-struct agent
+class agent
 {
+public:
 	unsigned short x, y;
 	float ox, oy;
 
