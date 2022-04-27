@@ -81,6 +81,28 @@ static void spawn_agent()
 	agents.push_back(a);
 }
 
+static bool poll(bool &resized)
+{
+	SDL_Event evt;
+
+	while (SDL_PollEvent(&evt)) {
+		switch(evt.type) {
+		case SDL_WINDOWEVENT:
+			switch (evt.window.event) {
+			case SDL_WINDOWEVENT_SIZE_CHANGED:
+				resized = true;
+				break;
+			}
+			break;
+
+		case SDL_QUIT:
+			return true;
+		}
+	}
+
+	return false;
+}
+
 int main(int argc, char *argv[], char *envp[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO)) {
@@ -93,7 +115,6 @@ int main(int argc, char *argv[], char *envp[])
 	fr.set_framerate(60);
 
 	SDL_Surface *srf = SDL_GetWindowSurface(win);
-	SDL_Event evt;
 
 	gc = new sdlgc(win);
 	b = new board(16, 16);
@@ -110,19 +131,8 @@ int main(int argc, char *argv[], char *envp[])
 
 		fr.next();
 
-		while (SDL_PollEvent(&evt)) {
-			switch(evt.type) {
-			case SDL_WINDOWEVENT:
-				switch (evt.window.event) {
-				case SDL_WINDOWEVENT_SIZE_CHANGED:
-					resized = true;
-					break;
-				}
-				break;
-
-			case SDL_QUIT:
-				goto out;
-			}
+		if (poll(resized)) {
+			goto out;
 		}
 
 		if (resized) {
