@@ -6,6 +6,9 @@ class board;
 
 class agent
 {
+	agent(const agent &);
+	agent &operator=(const agent &);
+
 public:
 	unsigned short x, y;
 	float ox, oy;
