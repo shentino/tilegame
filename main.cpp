@@ -126,10 +126,11 @@ int main(int argc, char *argv[], char *envp[])
 	/* initial display */
 	render();
 
+	/* catch any preemptive events */
+	poll();
+
 	for (;;) {
 		bool resized = false;
-
-		fr.next();
 
 		if (poll(resized)) {
 			goto out;
@@ -142,6 +143,8 @@ int main(int argc, char *argv[], char *envp[])
 
 		process();
 		render();
+
+		fr.next();
 	}
 
 out:
