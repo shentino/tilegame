@@ -43,7 +43,7 @@ static void process()
 	ae = agents.end();
 
 	while (ab != ae) {
-		(*ab++)->tick();
+		(*ab++)->tick(b);
 	}
 
 	b->tick();
