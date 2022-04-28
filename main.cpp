@@ -13,7 +13,6 @@ using namespace std;
 
 static board *b;
 static sdlgc *gc;
-static time_t last;
 static bool resized;
 static list<agent *> agents;
 
@@ -38,33 +37,13 @@ static void render()
 
 static void process()
 {
-	time_t now;
+	list<agent *>::iterator ab, ae;
 
-	time(&now);
+	ab = agents.begin();
+	ae = agents.end();
 
-	if (now != last) {
-		last = now;
-
-		b->scramble();
-
-		list<agent *>::iterator ab, ae;
-
-		ab = agents.begin();
-		ae = agents.end();
-
-		unsigned short w, h;
-
-		w = b->get_width();
-		h = b->get_height();
-
-		while (ab != ae) {
-			agent *a = *ab;
-
-			a->x = lrand48() % w;
-			a->y = lrand48() % h;
-
-			ab++;
-		}
+	while (ab != ae) {
+		(*ab++)->tick();
 	}
 
 	b->tick();

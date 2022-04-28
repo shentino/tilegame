@@ -46,14 +46,3 @@ void board::draw(gc *gc)
 void board::tick()
 {
 }
-
-void board::scramble()
-{
-	size_t sz;
-
-	sz = width * height;
-
-	for (size_t i = 0; i < sz; i++) {
-		tiles[i].terrain = lrand48() & 0xff;
-	}
-}
