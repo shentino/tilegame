@@ -5,7 +5,8 @@
 
 #include "gc.h"
 
-#define TILESIZE 32
+#define TILESIZE   32
+#define BOARDSIZE  16
 
 using namespace std;
 
