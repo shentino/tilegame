@@ -51,7 +51,7 @@ static void process()
 
 static void spawn_agent()
 {
-	agent *a = new agent;
+	agent *a = new agent(b);
 
 	a->x = lrand48() % b->get_width();
 	a->y = lrand48() % b->get_height();
