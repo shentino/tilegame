@@ -19,8 +19,6 @@ board::board(unsigned short new_width, unsigned short new_height)
 
 void board::draw(gc *gc)
 {
-	/* for now just assume each tile needs to be 32 pixels wide */
-
 	/* eventually we'll need to consult the ui for zoom and scroll information */
 
 	int centerx, centery;
