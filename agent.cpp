@@ -1,6 +1,12 @@
 #include "agent.h"
 #include "board.h"
 
+agent::agent(board *b)
+{
+	x = b->get_width() / 2;
+	y = b->get_height() / 2;
+}
+
 void agent::draw(gc *gc, board *b)
 {
 	int offsetx, offsety;

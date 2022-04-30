@@ -6,6 +6,7 @@ class board;
 
 class agent
 {
+	agent();
 	agent(const agent &);
 	agent &operator=(const agent &);
 
@@ -13,9 +14,7 @@ public:
 	unsigned short x, y;
 	float ox, oy;
 
-	agent()
-	{
-	}
+	agent(board *b);
 
 	void draw(gc *gc, board *b);
 	void tick(board *b);
