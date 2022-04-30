@@ -97,7 +97,7 @@ int main(int argc, char *argv[], char *envp[])
 	SDL_Surface *srf = SDL_GetWindowSurface(win);
 
 	gc = new sdlgc(win);
-	b = new board(16, 16);
+	b = new board(BOARDSIZE, BOARDSIZE);
 
 	for (int i = 0; i < 16; i++) {
 		spawn_agent();
