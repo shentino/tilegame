@@ -20,7 +20,7 @@ public:
 		return height;
 	}
 
-	virtual void set_color(unsigned char r, unsigned char g, unsigned char b) = 0;
+	virtual void set_brush_color(unsigned char r, unsigned char g, unsigned char b) = 0;
 	virtual void box(int x, int y, int w, int h) = 0;
 
 	virtual void prepare() = 0;

@@ -35,7 +35,7 @@ void board::draw(gc *gc)
 		for (unsigned short x = 0; x < width; x++) {
 			unsigned char terrain = tiles[y * height + x].terrain;
 
-			gc->set_color(0, terrain, 0);
+			gc->set_brush_color(0, terrain, 0);
 			gc->box(offsetx + x * TILESIZE, offsety + y * TILESIZE, TILESIZE, TILESIZE);
 		}
 	}

@@ -10,9 +10,9 @@ sdlgc::~sdlgc()
 {
 }
 
-void sdlgc::set_color(unsigned char r, unsigned char g, unsigned char b)
+void sdlgc::set_brush_color(unsigned char r, unsigned char g, unsigned char b)
 {
-	color = SDL_MapRGB(srf->format, r, g, b);
+	brush_color = SDL_MapRGB(srf->format, r, g, b);
 }
 
 void sdlgc::box(int x, int y, int w, int h)
