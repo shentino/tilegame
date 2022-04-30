@@ -24,7 +24,7 @@ void sdlgc::box(int x, int y, int w, int h)
 	r.w = w;
 	r.h = h;
 
-	SDL_FillRect(srf, &r, color);
+	SDL_FillRect(srf, &r, brush_color);
 }
 
 void sdlgc::prepare()
