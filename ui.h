@@ -3,6 +3,8 @@
 
 class ui
 {
+public:
+	void draw(gc *gc);
 };
 
 #endif
