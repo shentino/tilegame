@@ -6,8 +6,8 @@ clean:
 .PHONY: all cean
 
 # main output
-game: agent.o board.o framer.o gc.o main.o sdlgc.o
-	g++ agent.o board.o framer.o gc.o main.o sdlgc.o -o game `sdl2-config --libs`
+game: agent.o board.o framer.o gc.o main.o sdlgc.o ui.o
+	g++ agent.o board.o framer.o gc.o main.o sdlgc.o ui.o -o game `sdl2-config --libs`
 
 # object files
 agent.o: agent.cpp agent.h board.h gc.h
@@ -22,3 +22,5 @@ gc.o: gc.cpp gc.h
 	g++ -ggdb3 -c gc.cpp -o gc.o
 sdlgc.o: sdlgc.cpp gc.h sdlgc.h
 	g++ -ggdb3 -c sdlgc.cpp -o sdlgc.o `sdl2-config --cflags`
+ui.o: ui.cpp ui.h gc.h
+	g++ -ggdb3 -c ui.cpp -o ui.o
