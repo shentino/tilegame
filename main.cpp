@@ -106,13 +106,6 @@ int main(int argc, char *argv[], char *envp[])
 	/* initial display */
 	render();
 
-	/* catch any preemptive events */
-	resized = false;
-
-	if (poll()) {
-		goto out;
-	}
-
 	for (;;) {
 		resized = false;
 
