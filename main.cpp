@@ -103,6 +103,16 @@ int main(int argc, char *argv[], char *envp[])
 		spawn_agent();
 	}
 
+	/* catch preemptive events */
+
+	if (poll()) {
+		goto out;
+	}
+
+	if (resized) {
+		gc->resized();
+	}
+
 	/* initial display */
 	render();
 
