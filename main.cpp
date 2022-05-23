@@ -89,6 +89,13 @@ int main(int argc, char *argv[], char *envp[])
 		throw runtime_error(SDL_GetError());
 	}
 
+	int flags = IMG_INIT_PNG;
+	int aflags = IMG_Init(flags);
+
+	if (flags != aflags) {
+		throw runtime_error(IMG_GetError());
+	}
+
 	SDL_Window *win = SDL_CreateWindow("Tile game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_RESIZABLE);
 
 	framer fr;
