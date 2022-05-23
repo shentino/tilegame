@@ -7,7 +7,7 @@ clean:
 
 # main output
 game: agent.o board.o framer.o gc.o main.o sdlgc.o ui.o
-	g++ agent.o board.o framer.o gc.o main.o sdlgc.o ui.o -o game `sdl2-config --libs` -lSDL_image
+	g++ agent.o board.o framer.o gc.o main.o sdlgc.o ui.o -o game `sdl2-config --libs` -lSDL2_image
 
 # object files
 agent.o: agent.cpp agent.h board.h gc.h
