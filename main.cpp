@@ -85,6 +85,21 @@ static bool poll()
 	return false;
 }
 
+static void load_art()
+{
+	SDL_Surface *rocksrf = IMG_Load("art/rock.png");
+
+	if (!rocksrf) {
+		throw runtime_error(IMG_GetError());
+	}
+
+	SDL_Surface *soilsrf = IMG_Load("art/soil.png");
+
+	if (!soilsrf) {
+		throw runtime_error(IMG_GetError());
+	}
+}
+
 int main(int argc, char *argv[], char *envp[])
 {
 	if (SDL_Init(SDL_INIT_VIDEO)) {
@@ -97,6 +112,8 @@ int main(int argc, char *argv[], char *envp[])
 	if (flags != aflags) {
 		throw runtime_error(IMG_GetError());
 	}
+
+	load_art();
 
 	SDL_Window *win = SDL_CreateWindow("Tile game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_RESIZABLE);
 
