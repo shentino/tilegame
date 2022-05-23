@@ -4,6 +4,8 @@
 
 #include <SDL2/SDL.h>
 
+#include <SDL_image.h>
+
 #include "agent.h"
 #include "board.h"
 #include "framer.h"
